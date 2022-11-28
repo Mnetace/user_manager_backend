@@ -7,9 +7,7 @@ import { checkAuth, handleValidationErrors } from './utils/index.js'
 import * as UserController from './controllers/UserController.js'
 
 mongoose
-  .connect(
-    'mongodb://admin:wwwwww@ac-pdh0fnc-shard-00-00.lpglxzt.mongodb.net:27017,ac-pdh0fnc-shard-00-01.lpglxzt.mongodb.net:27017,ac-pdh0fnc-shard-00-02.lpglxzt.mongodb.net:27017/user-manager?ssl=true&replicaSet=atlas-d7vr5e-shard-0&authSource=admin&retryWrites=true&w=majority'
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('DB ok')
   })
